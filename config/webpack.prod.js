@@ -2,7 +2,9 @@ const path = require('path')
 const { production: productionPlugins } = require('./plugins.config')
 const { production: productionLoaders } = require('./loaders.config')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const { publicPath } = require('./mobius.config.js')
 
 const PATHS = {
   src: path.resolve(process.cwd(), 'src'),
@@ -17,7 +19,9 @@ module.exports = {
     main: './src/main.js'
   },
   output: {
-    path: PATHS.output
+    filename: '[name].[contenthash:7].js',
+    path: PATHS.output,
+    publicPath: publicPath
   },
   module: {
     rules: [
@@ -33,7 +37,8 @@ module.exports = {
           },
           'css-loader',
           'postcss-loader'
-        ]
+        ],
+        sideEffects: true
       },
       {
         oneOf: [...productionLoaders]
@@ -63,5 +68,24 @@ module.exports = {
       }
     ])
   ],
-  devtool: 'hidden-nosources-source-map'
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        sourceMap: true,
+        terserOptions: {
+          compress: {
+            drop_debugger: true,
+            drop_console: true
+          },
+          format: {
+            comments: false
+          }
+        }
+      })
+    ]
+  },
+  devtool: 'source-map'
+  // devtool: 'hidden-nosources-source-map'
 }

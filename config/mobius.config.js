@@ -1,34 +1,49 @@
+const PUBLIC_PATH = '/board/' // '|'  || '/board/'
+// https://fonts.googleapis.com/
+//  -> https://fonts.googleapis.cnpmjs.org/
+//  -> https://fonts.dogedoge.com/
+const CSS_CDN_ORIGIN = 'https://fonts.googleapis.cnpmjs.org/'
+
 module.exports = {
+  publicPath: PUBLIC_PATH,
   template: {
     index: {
-      title: 'Hello Mobius UI!',
-      whisper: 'The author is looking for a job as a product manager \\n             For a quickest preview of his info, check https://example.com/',
+      title: '汾阳本地通 - 专注本地便民服务',
+      whisper: 'The author is looking for a job as a product manager \\n             For a quickest preview of his info, check https://cigaret.world/',
       fonts: [
-        '/statics/fonts/Workbench[wdth,wght].woff2',
-        '/statics/fonts/Sixtyfour[wdth,wght].woff2'
+        `${PUBLIC_PATH}statics/fonts/Workbench[wdth,wght].woff2`,
+        `${PUBLIC_PATH}statics/fonts/Sixtyfour[wdth,wght].woff2`
       ],
       asyncCss: [
-        // https://fonts.googleapis.com/ -> https://fonts.googleapis.cnpmjs.org/
-        'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap',
-        'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap',
-        'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap',
-        'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap'
+        `${CSS_CDN_ORIGIN}css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap`,
+        `${CSS_CDN_ORIGIN}css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap`,
+        `${CSS_CDN_ORIGIN}css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap`,
+        `${CSS_CDN_ORIGIN}css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap`
       ],
-      css: [],
+      css: [
+        'https://cdn.jsdelivr.net/npm/@we-mobius/mobius-ui@latest'
+      ],
       scripts: [],
-      favicon: '/statics/favicons/thoughts-daily.icon.png',
+      favicon: `${PUBLIC_PATH}statics/favicons/thoughts-daily.icon.png`,
       headHtmlSnippet: `
         <style>
           body { developer: cigaret; wechat: cigaret_bot; email: kcigaret@outlook.com; }
         </style>
       `,
       bodyHtmlSnippet: `
-        <div id="app" class="w-full h-64 flex justify-around items-center">
-          <span class="text-6xl">Mobius Project Template!</span>
-        </div>
-        <div class="w-full flex justify-around items-center">
-          <div class="w-1/4 h-48 svg-smallerthan5KB"></div>
-          <div class="w-1/4 h-48 svg-biggerthan5KB"></div>
+        <div id="mobius-app">
+          <div class="mobius-width--100vw mobius-height--100vh mobius-layout__vertical">
+            <div class="mobius-padding--xl mobius-margin--auto mobius-shadow--normal mobius-rounded--base">
+              <div class="mobius-layout__vertical mobius-flex-items--center mobius-select--none">
+                <p class="mobius-text--center mobius-text--xl mobius-font--fantasy">
+                  <div class="svg-loading" style="width: 45px; height: 45px;"></div>
+                </p>
+                <p>
+                  汾阳本地通，专注本地便民服务！
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       `,
       // from: https://analytics.google.com/analytics/web/
@@ -37,7 +52,7 @@ module.exports = {
       },
       // from: https://tongji.baidu.com/sc-web/
       baiduAnalytics: {
-        trackingId: false // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        trackingId: 'a1c091343f08038e955fac3937a5d140' // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
       }
     }
   }

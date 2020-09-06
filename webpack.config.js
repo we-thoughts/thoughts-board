@@ -22,5 +22,6 @@ module.exports = (env, args) => {
     default:
       break
   }
+
   return merge(commonConfig, specificConfig, {})
 }

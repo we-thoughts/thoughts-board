@@ -46,15 +46,18 @@ module.exports = {
       }
     ])
   ],
-  devtool: 'eval-source-map',
+  // devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   devServer: {
     writeToDisk: true,
     compress: true,
     port: 3000,
     open: true,
     hot: true,
+    clientLogLevel: 'trace',
     watchOptions: {
-      ignored: /node_modules/
+      aggregateTimeout: 1000
+      // ignored: /node_modules/
     },
     disableHostCheck: true
   }

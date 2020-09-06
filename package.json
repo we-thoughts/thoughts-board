@@ -1,7 +1,7 @@
 {
-  "name": "template",
+  "name": "@we-thoughts/thoughts-board",
   "version": "0.1.0",
-  "description": "Mobius style project templates.",
+  "description": "Thoughts Board Application.",
   "main": "index.js",
   "keywords": [
     ""
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/we-mobius/template.git"
+    "url": "git+https://github.com/we-thoughts/thoughts-board.git"
   },
   "author": {
     "name": "kongxiangyan",
@@ -31,9 +31,9 @@
   },
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/we-mobius/template/issues"
+    "url": "https://github.com/we-thoughts/thoughts-board/issues"
   },
-  "homepage": "https://github.com/we-mobius/template#readme",
+  "homepage": "https://github.com/we-thoughts/thoughts-board#readme",
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/plugin-transform-runtime": "^7.10.5",
@@ -71,8 +71,10 @@
     "postcss-preset-env": "^6.7.0",
     "style-loader": "^1.2.1",
     "tailwindcss": "^1.4.4",
+    "terser-webpack-plugin": "^4.0.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
@@ -95,5 +97,11 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
-  }
+  },
+  "dependencies": {
+    "@cycle/dom": "^22.7.0",
+    "rxjs": "^6.6.2",
+    "superstruct": "^0.10.12"
+  },
+  "sideEffects": false
 }

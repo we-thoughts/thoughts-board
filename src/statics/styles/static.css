@@ -11,3 +11,9 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+.svg-loading {
+  background-image: url("../images/rings.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
